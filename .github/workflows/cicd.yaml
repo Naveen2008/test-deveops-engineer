@@ -34,7 +34,7 @@ jobs:
 
       - name: Build, tag, and push docker image to Docker Hub
         env:
-          IMAGE_TAG: 1.1
+          IMAGE_TAG: 1.0.0
         run: |
           docker build -t naveen75/playa3ulldemo:$IMAGE_TAG .
           docker push naveen75/playa3ulldemo:$IMAGE_TAG
@@ -44,5 +44,5 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
+          kubectl apply -f /eks/deployment.yaml
+          kubectl apply -f /eks/service.yaml
