@@ -44,8 +44,8 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          kubectl apply -f ./eks/deployment.yaml
-          kubectl apply -f ./eks/service.yaml
+          kubectl apply -f ./eks/playa3ull-app-deployment.yaml
+          kubectl apply -f ./eks/playa3ull-service.yaml
 
       - name: Rollback Deployment on Failure
         if: failure()
