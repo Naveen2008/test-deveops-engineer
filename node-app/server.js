@@ -1,6 +1,14 @@
 'use strict'
 
 const express = require('express');
+const promClient = require('prom-client');
+
+// Create a Registry to collect metrics
+const register = new promClient.Registry();
+
+// Default metrics (e.g., CPU, memory, etc.)
+promClient.collectDefaultMetrics({ register });
+
 const PORT = 8080;
 const HOST = '0.0.0.0';
 const OS = require('os');
@@ -19,6 +27,34 @@ app.get('/test', (req, res) => {
     res.send(getPage(msg));
 });
 
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
+
+// Custom metrics
+const httpRequestDuration = new promClient.Histogram({
+    name: 'http_request_duration_seconds',
+    help: 'Duration of HTTP requests in seconds',
+    labelNames: ['method', 'route', 'status'],
+    buckets: [0.1, 0.3, 0.5, 1, 3, 5],
+});
+register.registerMetric(httpRequestDuration);
+
+app.use((req, res, next) => {
+    const end = httpRequestDuration.startTimer();
+    res.on('finish', () => {
+        end({ method: req.method, route: req.route?.path || req.url, status: res.statusCode });
+    });
+    next();
+});
+
+// Add a /metrics endpoint
+app.get('/metrics', async (req, res) => {
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
@@ -33,7 +69,7 @@ function getPage(message) {
         + "}\n"
         + "\n"
         + ".bgimg {\n"
-        + "  background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');\n"
+        + "  background-image: url('https://codetheweb.blog/assets/img/posts/css-advanced-background-images/mountains.jpg');\n"
         + "  height: 100%;\n"
         + "  background-position: center;\n"
         + "  background-size: cover;\n"

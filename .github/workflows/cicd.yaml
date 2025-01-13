@@ -51,4 +51,4 @@ jobs:
         if: failure()
         run: |
           echo "Deployment failed. Rolling back..."
-          kubectl rollout undo deployment/demo-app   
+          kubectl rollout undo deployment/playa3ulldemoapp   

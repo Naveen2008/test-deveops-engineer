@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playa3ulldemoapp
+  labels:
+    app: playa3ulldemoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: playa3ulldemoapp
+  template:
+    metadata:
+      labels:
+        app: playa3ulldemoapp
+    spec:
+      containers:
+        - name: playa3ulldemoapp
+          image: naveen75/playa3ulldemoapp:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
