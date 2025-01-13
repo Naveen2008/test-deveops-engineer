@@ -14,9 +14,11 @@ spec:
       labels:
         app: playa3ulldemoapp
     spec:
+      imagePullSecrets:
+        - name: my-secret
       containers:
         - name: playa3ulldemoapp
-          image: naveen75/playa3ulldemoapp:1.0.0
+          image: naveen75/playa3ulldemo:1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
