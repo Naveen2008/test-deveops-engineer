@@ -48,7 +48,7 @@ jobs:
       # Step 6: Update kubeconfig
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --name playa3ullDemo
+          aws eks update-kubeconfig --name playa3ulldemo
 
       # Step 7: Deploy to EKS with Error Handling
       - name: Deploy to EKS
