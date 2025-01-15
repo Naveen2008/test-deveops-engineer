@@ -15,20 +15,20 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: playa3ulldemoapp-svc
+                name: playa3ulldemoapp
                 port:
                   number: 9000
           - path: /prometheus
             pathType: Prefix
             backend:
               service:
-                name: prometheus-service
+                name: monitoring-kube-prometheus-prometheus
                 port:
                   number: 9090
           - path: /grafana
             pathType: Prefix
             backend:
               service:
-                name: grafana-service
+                name: monitoring-grafana
                 port:
                   number: 3000
