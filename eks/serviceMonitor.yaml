@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: playa3ulldemoapp-servicemonitor
+    release: monitoring
+  name: playa3ulldemoapp-servicemonitor
+spec:
+  jobLabel: job
+  endpoints:
+    - interval: 2s
+      port: playa3ulldemoapp-port
+      path: /metrics
+  selector:
+    matchLabels:
+      app: playa3ulldemoapp
+  namespaceSelector:
+    matchNames:
+      - default

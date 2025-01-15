@@ -44,11 +44,12 @@ jobs:
         run: |
           docker build -t naveen75/playa3ulldemo:$IMAGE_TAG ./node-app
           docker push naveen75/playa3ulldemo:$IMAGE_TAG
+        continue-on-error: false  
 
       # Step 6: Update kubeconfig
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --name playa3ulldemo
+          aws eks update-kubeconfig --name demo-cluster
 
       # Step 7: Deploy to EKS with Error Handling
       - name: Deploy to EKS

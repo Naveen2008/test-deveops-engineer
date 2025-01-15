@@ -1,27 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playa3ulldemoapp
   labels:
     app: playa3ulldemoapp
+  name: playa3ulldemoapp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: playa3ulldemoapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  minReadySeconds: 2
   template:
     metadata:
       labels:
         app: playa3ulldemoapp
     spec:
-      imagePullSecrets:
-        - name: my-secret
       containers:
-        - name: playa3ulldemoapp
-          image: naveen75/playa3ulldemo:1.0.0
+        - image: naveen75/playa3ulldemo:1.0.0
+          name: playa3ulldemoapp
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 9000
           resources:
             requests:
               memory: "64Mi"
@@ -32,12 +36,12 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 9000
             initialDelaySeconds: 5
             periodSeconds: 5
           livenessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 9000
             initialDelaySeconds: 10
             periodSeconds: 10

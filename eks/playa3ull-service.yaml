@@ -1,11 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: playa3ulldemoapp-svc
+  labels:
+    job: node-api
+    app: playa3ulldemoapp
+  name: playa3ulldemoapp
 spec:
+  ports:
+    - name: playa3ulldemoapp-port
+      port: 80
+      protocol: TCP
+      targetPort: 9000
   selector:
     app: playa3ulldemoapp
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
