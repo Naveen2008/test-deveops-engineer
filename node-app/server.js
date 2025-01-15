@@ -4,7 +4,7 @@ const express = require('express');
 const client = require('prom-client');
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = 9000;
 const HOST = '0.0.0.0';
 const OS = require('os');
 const ENV = 'PROD';
