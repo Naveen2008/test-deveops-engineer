@@ -40,7 +40,7 @@ jobs:
       - name: Read Version from File
         id: version
         run: |
-            VERSION=$(cat ./node-app/version.txt)
+            VERSION=$(cat ./node-app/LATEST_VERSION)
             echo "VERSION=$VERSION"
             echo "VERSION=$VERSION" >> $GITHUB_ENV    
 
