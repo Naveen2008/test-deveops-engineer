@@ -20,3 +20,24 @@ spec:
                 name: playa3ulldemoapp
                 port:
                   number: 9000
+          - path: /health
+            pathType: Prefix
+            backend:
+              service:
+                name: playa3ulldemoapp
+                port:
+                  number: 9000
+          - path: /serverError
+            pathType: Prefix
+            backend:
+              service:
+                name: playa3ulldemoapp
+                port:
+                  number: 9000
+          - path: /crash
+            pathType: Prefix
+            backend:
+              service:
+                name: playa3ulldemoapp
+                port:
+                  number: 9000
