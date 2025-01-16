@@ -88,10 +88,10 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/healthy', (req, res) => {
+app.get('/health', (req, res) => {
     res.status(200).json({
         name: "👀 - Obserability 🔥- Naveen",
-        status: "healthy"
+        status: "health"
     })
 });
 
