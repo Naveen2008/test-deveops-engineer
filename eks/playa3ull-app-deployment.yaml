@@ -21,7 +21,7 @@ spec:
         app: playa3ulldemoapp
     spec:
       containers:
-        - image: naveen75/playa3ulldemo:1.0.1
+        - image: naveen75/playa3ulldemo:1.0.3
           name: playa3ulldemoapp
           imagePullPolicy: Always
           ports:
