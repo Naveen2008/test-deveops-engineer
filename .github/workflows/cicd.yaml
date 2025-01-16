@@ -40,7 +40,7 @@ jobs:
       # Step 5: Build, Tag, and Push Docker Image
       - name: Build, Tag, and Push Docker Image to Docker Hub
         env:
-          IMAGE_TAG: 1.0.1
+          IMAGE_TAG: $VERSION
         run: |
           docker build -t naveen75/playa3ulldemo:$IMAGE_TAG ./node-app
           docker push naveen75/playa3ulldemo:$IMAGE_TAG

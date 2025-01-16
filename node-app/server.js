@@ -1,5 +1,6 @@
 'use strict'
 
+const winston = require('winston');
 require('dotenv').config();
 require('./tracing'); // Add this line to initialize tracing
 const express = require('express');
@@ -13,9 +14,7 @@ const HOST = '0.0.0.0';
 const OS = require('os');
 const ENV = 'PROD';
 
-
 const logger = pino();
-
 const logging = () => {
     logger.info("Here are the logs")
     logger.info("Please have a look ")
@@ -23,6 +22,15 @@ const logging = () => {
 }
 
 app.use(morgan('common'))
+
+const log = winston.createLogger({
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: '/var/log/app.log' }),
+    ],
+});
+
+log.info('This is a log test message for loki');
 
 // Prometheus metrics
 const httpRequestCounter = new promClient.Counter({
@@ -83,7 +91,7 @@ collectDefaultMetrics({ register: promClient.register })
 
 app.get('/app', (req, res) => {
     res.statusCode = 200;
-    const msg = 'Hello from Playa3ull!!!!';
+    const msg = 'Welcome to Playa3ull!!!! games';
     res.send(getPage(msg));
 });
 

@@ -5,7 +5,7 @@ alertmanager:
     # ✅ Solves error: Alertmanager wasn't able to findout the applied CRD (kind: Alertmanagerconfig)
     alertmanagerConfigSelector:
       matchLabels:
-        release: monitoring
+        release: prometheus
 
     # Sets the number of Alertmanager replicas to 3 for high availability.
     # ✅ Solves error: Single replica can cause alerting issues during pod failures.
