@@ -81,7 +81,7 @@ const collectDefaultMetrics = promClient.collectDefaultMetrics;
 collectDefaultMetrics({ register: promClient.register })
 
 
-app.get('/', (req, res) => {
+app.get('/app', (req, res) => {
     res.statusCode = 200;
     const msg = 'Hello from from Playa3ull!!!!';
     res.send(getPage(msg));
