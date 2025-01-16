@@ -40,7 +40,7 @@ jobs:
       - name: Read Version from File
         id: version
         run: |
-            VERSION=$(cat version.txt)
+            VERSION=$(cat ./version.txt)
             echo "VERSION=$VERSION"
             echo "VERSION=$VERSION" >> $GITHUB_ENV    
 
