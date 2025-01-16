@@ -37,10 +37,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Read Version from File
+        id: version
+        run: |
+            VERSION=$(cat version.txt)
+            echo "VERSION=$VERSION"
+            echo "VERSION=$VERSION" >> $GITHUB_ENV    
+
       # Step 5: Build, Tag, and Push Docker Image
       - name: Build, Tag, and Push Docker Image to Docker Hub
         env:
-          IMAGE_TAG: $VERSION
+          IMAGE_TAG: ${{ env.VERSION }}
         run: |
           docker build -t naveen75/playa3ulldemo:$IMAGE_TAG ./node-app
           docker push naveen75/playa3ulldemo:$IMAGE_TAG
