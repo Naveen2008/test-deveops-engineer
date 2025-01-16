@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    job: node-api
+    monitoring: enabled
     app: playa3ulldemoapp
   name: playa3ulldemoapp
 spec:

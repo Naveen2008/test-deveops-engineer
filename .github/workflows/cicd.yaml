@@ -56,7 +56,7 @@ jobs:
         id: deploy
         run: |
           echo "Starting deployment to EKS..."
-          kubectl apply -f ./eks
+          kubectl apply -f ./eks/playa3ull-app-deployment.yaml
           echo "Waiting for deployment to stabilize..."
           kubectl rollout status deployment/playa3ulldemoapp --timeout=120s
 

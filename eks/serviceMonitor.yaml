@@ -3,8 +3,9 @@ kind: ServiceMonitor
 metadata:
   labels:
     app: playa3ulldemoapp-servicemonitor
-    release: monitoring
+    release: prometheus
   name: playa3ulldemoapp-servicemonitor
+  namespace: monitoring
 spec:
   jobLabel: job
   endpoints:
