@@ -19,7 +19,7 @@ eksctl create cluster --name=demo-cluster \
 ```
 ```bash
 eksctl utils associate-iam-oidc-provider \
-    --region us-east-1 \
+    --region ap-southeast-2 \
     --cluster demo-cluster \
     --approve
 ```
