@@ -3,7 +3,7 @@ name: Node.js App Deploy to Docker Hub and EKS
 on:
   push:
     paths:
-      - test-deveops-engineer/node-app/LATEST_VERSION
+      - ./node-app
     branches:
       - main  
 
