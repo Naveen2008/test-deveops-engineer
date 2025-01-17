@@ -1,13 +1,5 @@
 name: Node.js App Deploy to Docker Hub and EKS
 
-# on:
-#   workflow_dispatch:
-#     inputs:
-#       environment:
-#         description: 'Deploy to DEV'
-#         required: true
-#         default: 'development'
-
 on:
   push:
     branches:
