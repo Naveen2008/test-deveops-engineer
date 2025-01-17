@@ -3,7 +3,7 @@ name: Node.js App Deploy to Docker Hub and EKS
 on:
   push:
     paths:
-      - 'node-app/**'
+      - 'VERSION/**'
     branches:
       - main  
 
@@ -39,9 +39,9 @@ jobs:
       - name: Read Version from File
         id: version
         run: |
-            VERSION=$(cat ./node-app/LATEST_VERSION)
+            VERSION=$(cat ./VERSION/LATEST_VERSION)
             echo "VERSION=$VERSION"
-            echo "VERSION=$VERSION" >> $GITHUB_ENV    
+            echo "VERSION=$VERSION" > $GITHUB_ENV    
 
       # Step 5: Build, Tag, and Push Docker Image
       - name: Build, Tag, and Push Docker Image to Docker Hub
