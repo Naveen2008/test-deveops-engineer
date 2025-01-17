@@ -8,7 +8,7 @@
 - Setup and configure AWS CLI using the `aws configure` command.
 - Install and configure eksctl using the steps mentioned [here]("https://eksctl.io/installation/").
 - Install and configure kubectl as mentioned [here]("https://kubernetes.io/docs/tasks/tools/").
-- Install AWS application ELB [here] ("https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html")
+- Install AWS application ELB [here] ("https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html").
 
 
 ```bash
