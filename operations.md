@@ -1,7 +1,7 @@
 # The steps are followed as below to Deploy a Nodejs app using github actions.
 
 # Installation & Configurations
-## Step 1: Create EKS Cluster(Recoamended way is using Iac)
+## Step 1: Create EKS Cluster(Recomended way is using Iac)
 
 ### Prerequisites
 - Download and Install AWS Cli - Please Refer ("https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html").

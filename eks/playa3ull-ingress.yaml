@@ -41,3 +41,10 @@ spec:
                 name: playa3ulldemoapp
                 port:
                   number: 9000
+          - path: /example
+            pathType: Prefix
+            backend:
+              service:
+                name: playa3ulldemoapp
+                port:
+                  number: 9000
