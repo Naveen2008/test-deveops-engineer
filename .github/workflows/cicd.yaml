@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - 'node-app/**'
-    branches:
-      - main  
 
 jobs:
   deploy:
