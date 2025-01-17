@@ -4,11 +4,11 @@
 ## Step 1: Create EKS Cluster(Recoamended way is using Iac)
 
 ### Prerequisites
-- Download and Install AWS Cli - Please Refer [this]("https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html") link.
+- Download and Install AWS Cli - Please Refer ("https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html").
 - Setup and configure AWS CLI using the `aws configure` command.
-- Install and configure eksctl using the steps mentioned [here]("https://eksctl.io/installation/").
-- Install and configure kubectl as mentioned [here]("https://kubernetes.io/docs/tasks/tools/").
-- Install AWS application ELB [here]("https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html").
+- Install and configure eksctl using the steps mentioned ("https://eksctl.io/installation/").
+- Install and configure kubectl as mentioned ("https://kubernetes.io/docs/tasks/tools/").
+- Install AWS application ELB ("https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html").
 
 
 ```bash
