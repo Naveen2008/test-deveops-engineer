@@ -5,10 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ./node-app/LATEST_VERSION  
-  pull_request:
-    branches:
-      - main
+      - test-deveops-engineer/node-app/LATEST_VERSION
 
 jobs:
   deploy:
