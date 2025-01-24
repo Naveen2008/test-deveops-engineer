@@ -3,9 +3,9 @@ name: Node.js App Deploy to Docker Hub and EKS
 on:
   push:
     paths:
-      - ./node-app/VERSION/**
-  pull_request:  
-    branches: ["main"]
+      - ./node-app/VERSION/**  
+    branches:
+      - main
 
 jobs:
   deploy:
