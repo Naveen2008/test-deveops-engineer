@@ -30,7 +30,7 @@ const log = winston.createLogger({
     ],
 });
 
-log.info('This is a log test message for loki');
+log.info('The server crash message sent to loki');
 
 // Prometheus metrics
 const httpRequestCounter = new promClient.Counter({
@@ -127,7 +127,7 @@ app.get('/logs', (req, res) => {
 
 // Simulate a crash by throwing an error
 app.get('/crash', (req, res) => {
-    console.log('Intentionally crashing the server...');
+    res.send('Server crashing due to high load...!!!💥');
     process.exit(1);
 });
 
